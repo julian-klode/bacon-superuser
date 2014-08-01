@@ -1,0 +1,20 @@
+assert(getprop("ro.product.device") == "bacon" || getprop("ro.build.product") == "bacon" || 
+       getprop("ro.product.device") == "A0001" || getprop("ro.build.product") == "A0001" || abort("This package is for \"bacon,A0001\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
+show_progress(0.500000, 0);
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
+
+delete("/system/xbin/su");
+delete("/system/app/Superuser.apk");
+delete("/system/app/Supersu.apk");
+delete("/system/app/superuser.apk");
+delete("/system/app/supersu.apk");
+delete("/system/app/SuperUser.apk");
+delete("/system/app/SuperSU.apk");
+delete("/system/etc/install-recovery.sh");
+delete("/system/etc/.installed_su_daemon");
+
+package_extract_dir("system", "/system");
+set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
+package_extract_file("boot.img", "/dev/block/platform/msm_sdcc.1/by-name/boot");
+show_progress(0.100000, 0);
+unmount("/system");

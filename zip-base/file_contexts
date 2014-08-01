@@ -1,0 +1,2 @@
+#line 1 "external/sepolicy/file_contexts"
+/system/xbin/su		u:object_r:su_exec:s0
