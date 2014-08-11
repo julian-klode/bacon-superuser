@@ -5,7 +5,10 @@ BOOTIMG_URL  := http://dist01.slc.cyngn.com/factory/bacon/$(BOOTIMG_FILE)
 UPDATE_ZIP   := out/cm-unofficial-11.0-$(VERSION)-bacon-superuser.zip
 SIGNED_ZIP   := out/cm-unofficial-11.0-$(VERSION)-bacon-signed-superuser.zip
 
-.uploaded: $(SIGNED_ZIP).asc $(UPDATE_ZIP).asc
+out/index.html: $(SIGNED_ZIP) $(SIGNED_ZIP).asc
+	python3 makeindex.py | tidy -i -xml -utf8 > out/index.html
+
+.uploaded: $(SIGNED_ZIP).asc $(UPDATE_ZIP).asc out/index.html
 	sitecopy -u cm
 	touch $@
 
