@@ -1,5 +1,18 @@
-This generates an update zip that flashes a debuggable boot image and a su
-binary to a OnePlus One.
+This generates
+
+(1) an update zip that flashes a debuggable boot image and a su
+    binary to a OnePlus One. (full)
+(2) an update zip that flashes a su binary integrating with the Superuser in
+    CM settings that ignores the ro.debuggable settings. (light)
+
+Building
+--------
+Make sure to initialize and update the submodules first. Then run
+
+       make full     to build the update zip with a boot.img
+       make light    to build the update zip without a boot.img
+
+This will also try to upload the resulting binaries to my page which will fail.
 
 Disclaimer
 ----------
@@ -17,6 +30,8 @@ Origin: CM11S, AOSP
 
 Files: zip-base/META-INF/com/google/android/updater-script
        zip-base/file_contexts
+       zip-light-base/META-INF/com/google/android/updater-script
+       zip-light-base/file_contexts
 Origin: CM11, CM11S
  These files are derived from the official 11S firmware update zip and the CM11
  M8 update zip. The derived parts consist only of a few lines and are most
