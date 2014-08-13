@@ -1,0 +1,4 @@
+[submodule "Superuser"]
+	path = Superuser
+	url = https://github.com/CyanogenMod/Superuser
+	branch = shipping/cm-11.0
