@@ -12,6 +12,7 @@ delete("/system/app/SuperUser.apk");
 delete("/system/app/SuperSU.apk");
 delete("/system/etc/install-recovery.sh");
 delete("/system/etc/.installed_su_daemon");
+delete("/system/etc/init.d/01su");
 
 package_extract_dir("system", "/system");
 set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
