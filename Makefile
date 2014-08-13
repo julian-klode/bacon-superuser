@@ -49,7 +49,7 @@ zip-light-base/system/xbin/su: $(shell find Superuser -type f)
 
 $(LIGHT_UPDATE_ZIP): zip-light-base/system/xbin/su $(shell find zip-light-base -type f)
 	rm -f $(UPDATE_ZIP)
-	cd zip-light-base && 7z a ../$(UPDATE_ZIP) .
+	cd zip-light-base && 7z a ../$(LIGHT_UPDATE_ZIP) .
 
 $(LIGHT_SIGNED_ZIP): $(LIGHT_UPDATE_ZIP)
 	java -jar signapk/signapk.jar signapk/testkey.x509.pem signapk/testkey.pk8  $@ $<
