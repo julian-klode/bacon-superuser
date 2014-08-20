@@ -2,6 +2,7 @@ assert(getprop("ro.product.device") == "bacon" || getprop("ro.build.product") ==
        getprop("ro.product.device") == "A0001" || getprop("ro.build.product") == "A0001" || abort("This package is for \"bacon,A0001\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
 show_progress(0.500000, 0);
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data");
 
 delete("/system/bin/su");
 delete("/system/xbin/su");
@@ -15,6 +16,7 @@ delete("/system/etc/install-recovery.sh");
 delete("/system/etc/.installed_su_daemon");
 
 package_extract_dir("system", "/system");
+package_extract_dir("data", "/data");
 
 symlink("../xbin/su", "/system/bin/su");
 

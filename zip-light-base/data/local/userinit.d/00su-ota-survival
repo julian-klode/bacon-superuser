@@ -1,0 +1,46 @@
+#!/system/bin/sh
+#
+# 00su-ota-survival - bacon-superuser OTA survival script
+#
+# Copyright 2014 Julian Andres Klode <jak@jak-linux.org>
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+install="install -o root -g root"
+backup_dir="/data/local/jak-su-backup"
+
+# Restore a su installation, and start su daemon
+restore_su() {
+    mount -o remount,rw /system
+    $install -m755  -Z u:object_r:system_file:s0 $backup_dir/01su /system/etc/init.d/01su
+    $install -m06755 -Z u:object_r:su_exec:s0 $backup_dir/su /system/xbin/su
+    mount -o remount,ro /system
+
+    /system/etc/init.d/01su
+}
+
+# Backup a su installation
+backup_su() {
+    [ -e $backup_dir ] || mkdir $backup_dir
+    cp /system/etc/init.d/01su $backup_dir
+    cp /system/xbin/su $backup_dir
+}
+
+if [ -e $backup_dir/su ] && [ ! -e /system/xbin/su ]; then
+    restore_su
+elif [ ! -e $backup_dir/su ] && [ -e /system/xbin/su ]; then
+    backup_su
+else
+    echo "SUPERUSER BROKEN" >&2
+    exit 1
+fi
