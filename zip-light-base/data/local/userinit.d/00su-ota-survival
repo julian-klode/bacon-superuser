@@ -16,31 +16,31 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-install="install -o root -g root"
-backup_dir="/data/local/jak-su-backup"
+# List of files and links to backup
+backup_files="system/etc/init.d/01su system/bin/su system/xbin/su"
+backup_tar="/data/local/jak-su-backup.tar"
 
-# Restore a su installation, and start su daemon
 restore_su() {
+    # Unpack backup
     mount -o remount,rw /system
-    $install -m755  -Z u:object_r:system_file:s0 $backup_dir/01su /system/etc/init.d/01su
-    $install -m06755 -Z u:object_r:su_exec:s0 $backup_dir/su /system/xbin/su
+    tar -C / -xf $backup_tar
     mount -o remount,ro /system
 
+    # Start su
     /system/etc/init.d/01su
 }
 
-# Backup a su installation
 backup_su() {
-    [ -e $backup_dir ] || mkdir $backup_dir
-    cp /system/etc/init.d/01su $backup_dir
-    cp /system/xbin/su $backup_dir
+    # Do this atomically
+    tar -C / -cpf $backup_tar.tmp $backup_files
+    mv $backup_tar.tmp $backup_tar
 }
 
-if [ -e $backup_dir/su ] && [ ! -e /system/xbin/su ]; then
-    restore_su
-elif [ ! -e $backup_dir/su ] && [ -e /system/xbin/su ]; then
-    backup_su
-else
+if [ ! -e $backup_tar ] && [ ! -e /system/xbin/su ]; then
     echo "SUPERUSER BROKEN" >&2
     exit 1
+elif [ -e $backup_tar ] && [ ! -e /system/xbin/su ]; then
+    restore_su
+elif [ ! -e $backup_tar ] && [ -e /system/xbin/su ]; then
+    backup_su
 fi
