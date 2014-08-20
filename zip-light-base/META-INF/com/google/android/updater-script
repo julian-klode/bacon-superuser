@@ -22,6 +22,7 @@ symlink("../xbin/su", "/system/bin/su");
 
 set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 set_metadata("/system/etc/init.d/01su", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/local/userinit.d/00su-ota-survival", "uid", 0, "gid", 0, "mode", 0755);
 show_progress(0.100000, 0);
 unmount("/system");
 unmount("/data");
