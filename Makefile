@@ -35,7 +35,7 @@ zip-base/boot.img: $(BOOTIMG_FILE)
 
 $(UPDATE_ZIP): zip-base/boot.img
 	rm -f $@
-	cd zip-light-base && 7z a ../$@ .
+	cd zip-base && 7z a ../$@ .
 
 $(SIGNED_ZIP): $(UPDATE_ZIP)
 	java -jar signapk/signapk.jar signapk/testkey.x509.pem signapk/testkey.pk8  $< $@
