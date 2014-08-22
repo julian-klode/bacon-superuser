@@ -2,6 +2,7 @@ assert(getprop("ro.product.device") == "bacon" || getprop("ro.build.product") ==
        getprop("ro.product.device") == "A0001" || getprop("ro.build.product") == "A0001" || abort("This package is for \"bacon,A0001\" devices; this is a \"" + getprop("ro.product.device") + "\"."););
 show_progress(0.500000, 0);
 mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/system", "/system");
+mount("ext4", "EMMC", "/dev/block/platform/msm_sdcc.1/by-name/userdata", "/data");
 
 delete("/system/bin/su");
 delete("/system/xbin/su");
@@ -13,12 +14,16 @@ delete("/system/app/SuperUser.apk");
 delete("/system/app/SuperSU.apk");
 delete("/system/etc/install-recovery.sh");
 delete("/system/etc/.installed_su_daemon");
+delete("/data/local/jak-su-backup.tar");
 
 package_extract_dir("system", "/system");
+package_extract_dir("data", "/data");
 
 symlink("../xbin/su", "/system/bin/su");
 
 set_metadata("/system/xbin/su", "uid", 0, "gid", 0, "mode", 06755, "capabilities", 0x0, "selabel", "u:object_r:su_exec:s0");
 set_metadata("/system/etc/init.d/01su", "uid", 0, "gid", 0, "mode", 0755, "capabilities", 0x0, "selabel", "u:object_r:system_file:s0");
+set_metadata("/data/local/userinit.d/00su-ota-survival", "uid", 0, "gid", 0, "mode", 0755);
 show_progress(0.100000, 0);
 unmount("/system");
+unmount("/data");
