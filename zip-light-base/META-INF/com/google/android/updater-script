@@ -14,6 +14,7 @@ delete("/system/app/SuperUser.apk");
 delete("/system/app/SuperSU.apk");
 delete("/system/etc/install-recovery.sh");
 delete("/system/etc/.installed_su_daemon");
+delete("/data/local/jak-su-backup.tar");
 
 package_extract_dir("system", "/system");
 package_extract_dir("data", "/data");
