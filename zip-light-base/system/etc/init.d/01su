@@ -1,2 +1,2 @@
 #!/system/bin/sh
-/system/xbin/su --daemon &
+[ -e /init.superuser.rc ] || /system/xbin/su --daemon &
