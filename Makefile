@@ -1,4 +1,4 @@
-VERSION := XNPH30O
+VERSION := XNPH44S
 BOOTIMG_FILE := cm-11.0-$(VERSION)-bacon-boot-debuggable.img
 BOOTIMG_URL  := http://dist01.slc.cyngn.com/factory/bacon/$(BOOTIMG_FILE)
 
