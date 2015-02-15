@@ -41,7 +41,7 @@ $(SIGNED_ZIP): $(UPDATE_ZIP)
 	java -jar signapk/signapk.jar signapk/testkey.x509.pem signapk/testkey.pk8  $< $@
 
 %.zip.asc: %.zip
-	gpg -abs $<
+	gpg2 -abs $<
 
 zip-light-base/system/xbin/su: $(shell find Superuser -type f)
 	$(NDK_BUILD) -C Superuser/Superuser libs/armeabi/su LOCAL_CFLAGS="$(LOCAL_CFLAGS)"
