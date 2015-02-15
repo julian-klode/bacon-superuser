@@ -76,7 +76,7 @@ HTML = """
     </div>
       <footer>
         <p>
-                Copyright © 2014 Julian Andres Klode<br/>
+                Copyright © 2014, 2015 Julian Andres Klode<br/>
 
         <a href="https://github.com/julian-klode/bacon-superuser">Source and Legal Information</a>&nbsp;|&nbsp;<a href="http://validator.w3.org/check?uri=referer">Valid XHTML 5</a>
         </p>
