@@ -1,14 +1,14 @@
-VERSION := XNPH05Q
-BOOTIMG_FILE := cm-11.0-$(VERSION)-bacon-boot-debuggable.img
-BOOTIMG_URL  := http://dist01.slc.cyngn.com/factory/bacon/$(BOOTIMG_FILE)
+VERSION := YNG1TAS0YL
+BOOTIMG_FILE := cm-12.0-$(VERSION)-bacon-boot-debuggable.img
+BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/12.0-YNG1TAS0YL-bacon/2263178b74/$(BOOTIMG_FILE)
 
-UPDATE_ZIP   := out/cm-unofficial-11.0-$(VERSION)-bacon-superuser.zip
-SIGNED_ZIP   := out/cm-unofficial-11.0-$(VERSION)-bacon-signed-superuser.zip
+UPDATE_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-superuser.zip
+SIGNED_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-signed-superuser.zip
 
 # Light builds
 NDK_BUILD    := $(HOME)/Downloads/android-ndk-r10/ndk-build
-LIGHT_UPDATE_ZIP   := out/cm-unofficial-11-superuser-light.zip
-LIGHT_SIGNED_ZIP   := out/cm-unofficial-11-signed-superuser-light.zip
+LIGHT_UPDATE_ZIP   := out/cm-unofficial-12.0-superuser-light.zip
+LIGHT_SIGNED_ZIP   := out/cm-unofficial-12.0-signed-superuser-light.zip
 LOCAL_CFLAGS := -DSQLITE_OMIT_LOAD_EXTENSION -DREQUESTOR=\\\"com.android.settings\\\" \
 				-DREQUESTOR_PREFIX=\\\"com.android.settings.cyanogenmod.superuser\\\"
 
