@@ -1,6 +1,7 @@
-VERSION := YNG1TAS0YL
+VERSION := YNG1TAS17L
+HASH         := e816218e8a
 BOOTIMG_FILE := cm-12.0-$(VERSION)-bacon-boot-debuggable.img
-BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/12.0-YNG1TAS0YL-bacon/2263178b74/$(BOOTIMG_FILE)
+BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/12.0-$(VERSION)-bacon/$(HASH)/$(BOOTIMG_FILE)
 
 UPDATE_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-superuser.zip
 SIGNED_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-signed-superuser.zip
