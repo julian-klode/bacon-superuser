@@ -22,7 +22,7 @@
     <![endif]-->
   </head>
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed"
@@ -38,27 +38,27 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li>
-              <a href="./projects/debimg/">debimg</a>
+              <a href="/projects/debimg/">debimg</a>
             </li>
             <li>
-              <a href="./projects/dh-autoreconf/">dh-autoreconf</a>
+              <a href="/projects/dh-autoreconf/">dh-autoreconf</a>
             </li>
             <li>
-              <a href="./projects/dir2ogg/">dir2ogg</a>
+              <a href="/projects/dir2ogg/">dir2ogg</a>
             </li>
             <li>
-              <a href="./projects/hardlink/">hardlink</a>
+              <a href="/projects/hardlink/">hardlink</a>
             </li>
             <li>
-              <a href="./projects/ndisgtk/">ndisgtk</a>
+              <a href="/projects/ndisgtk/">ndisgtk</a>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="./about/">About</a>
+              <a href="/about/">About</a>
             </li>
             <li>
-              <a href="./recentchanges/">RecentChanges</a>
+              <a href="/recentchanges/">RecentChanges</a>
             </li>
           </ul>
         </div>
