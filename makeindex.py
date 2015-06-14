@@ -19,72 +19,7 @@ import time
 
 import apt_pkg
 
-HTML = """
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>Index of /cm/</title>
-
-    <!-- Le styles -->
-    <link rel="stylesheet" href="/style.css" type="text/css" />
-    <link rel="stylesheet" href="/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="/local.css" type="text/css" />
-  </head>
-
-  <body>
-
-
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="">JAK LINUX</a>
-          <ul class="nav">
-            <li ><a href="/projects/debimg/">debimg</a></li>
-            <li ><a href="/projects/dh-autoreconf/">dh-autoreconf</a></li>
-            <li ><a href="/projects/dir2ogg/">dir2ogg</a></li>
-            <li ><a href="/projects/hardlink/">hardlink</a></li>
-            <li ><a href="/projects/ndisgtk/">ndisgtk</a></li>
-          </ul>
-          <ul class="nav pull-right">
-                    <li ><a href="/about/">About</a></li>
-                    <li ><a href="/recentchanges/">RecentChanges</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <div class="content">
-          <header class="page-header">
-                <h1>Index of /cm</h1>
-          </header>
-
-
-    <table style="width: 100%">
-      <thead>
-        <tr>
-            <th>Filename</th>
-            <th>Modification time</th>
-            <th>Size</th>
-        </tr>
-      </thead>
-      <tbody>
-{body}
-      </tbody>
-    </table>
-    </div>
-      <footer>
-        <p>
-                Copyright © 2014, 2015 Julian Andres Klode<br/>
-
-        <a href="https://github.com/julian-klode/bacon-superuser">Source and Legal Information</a>&nbsp;|&nbsp;<a href="http://validator.w3.org/check?uri=referer">Valid XHTML 5</a>
-        </p>
-      </footer>
-    </div>
-  </body>
-</html>"""
-
+HTML = open("index.html.in").read()
 
 TMPL = """
         <tr>
