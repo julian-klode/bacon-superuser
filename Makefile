@@ -21,7 +21,7 @@ light: $(LIGHT_SIGNED_ZIP).asc $(LIGHT_UPDATE_ZIP).asc
 full: $(SIGNED_ZIP).asc $(UPDATE_ZIP).asc
 	@$(MAKE) .uploaded
 
-out/index.html: $(wildcard out/*.zip out/*.asc)
+out/index.html: $(wildcard out/*.zip out/*.asc) index.html.in makeindex.py
 	python3 makeindex.py | tidy -i -xml -utf8 > out/index.html
 
 .uploaded: out/index.html
