@@ -7,11 +7,8 @@ UPDATE_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-superuser.zip
 SIGNED_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-signed-superuser.zip
 
 # Light builds
-NDK_BUILD    := $(HOME)/Downloads/android-ndk-r10/ndk-build
-LIGHT_UPDATE_ZIP   := out/cm-unofficial-11.0-superuser-light.zip
-LIGHT_SIGNED_ZIP   := out/cm-unofficial-11.0-signed-superuser-light.zip
-LOCAL_CFLAGS := -DSQLITE_OMIT_LOAD_EXTENSION -DREQUESTOR=\\\"com.android.settings\\\" \
-				-DREQUESTOR_PREFIX=\\\"com.android.settings.cyanogenmod.superuser\\\"
+LIGHT_UPDATE_ZIP   := out/cm-unofficial-12.0-superuser-light.zip
+LIGHT_SIGNED_ZIP   := out/cm-unofficial-12.0-signed-superuser-light.zip
 
 all: full light
 
@@ -44,9 +41,8 @@ $(SIGNED_ZIP): $(UPDATE_ZIP)
 %.zip.asc: %.zip
 	gpg2 -abs $<
 
-zip-light-base/system/xbin/su: $(shell find Superuser -type f)
-	$(NDK_BUILD) -C Superuser/Superuser libs/armeabi/su LOCAL_CFLAGS="$(LOCAL_CFLAGS)"
-	install -D -m755 Superuser/Superuser/assets/armeabi/su $@
+zip-light-base/system/xbin/su: zip-base/system/xbin/su
+	python3 patch_su.py
 
 $(LIGHT_UPDATE_ZIP): zip-light-base/system/xbin/su $(shell find zip-light-base -type f)
 	rm -f $@
