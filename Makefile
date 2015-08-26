@@ -1,10 +1,11 @@
-VERSION := YNG1TAS2I3
-HASH         := 30bd462d41
-BOOTIMG_FILE := cm-12.0-$(VERSION)-bacon-boot-debuggable.img
-BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/12.0-$(VERSION)-bacon/$(HASH)/$(BOOTIMG_FILE)
+SERIES := 12.1
+VERSION := YOG4PAS1N0
+HASH         := 7c535cd450
+BOOTIMG_FILE := cm-$(SERIES)-$(VERSION)-bacon-boot-debuggable.img
+BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/$(SERIES)-$(VERSION)-bacon/$(HASH)/$(BOOTIMG_FILE)
 
-UPDATE_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-superuser.zip
-SIGNED_ZIP   := out/cm-unofficial-12.0-$(VERSION)-bacon-signed-superuser.zip
+UPDATE_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-superuser.zip
+SIGNED_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-signed-superuser.zip
 
 # Light builds
 LIGHT_UPDATE_ZIP   := out/cm-unofficial-12.0-superuser-light.zip
