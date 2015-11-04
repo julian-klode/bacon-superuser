@@ -1,6 +1,6 @@
 SERIES := 12.1
-VERSION := YOG4PAS2QL
-HASH         := 49d90510ef
+VERSION := YOG4PAS3JL
+HASH         := d91bf047f5
 BOOTIMG_FILE := cm-$(SERIES)-$(VERSION)-bacon-boot-debuggable.img
 BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/$(SERIES)-$(VERSION)-bacon/$(HASH)/$(BOOTIMG_FILE)
 
