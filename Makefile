@@ -1,8 +1,8 @@
 SERIES := 12.1
-VERSION := YOG4PAS3JL
-HASH         := d91bf047f5
-BOOTIMG_FILE := cm-$(SERIES)-$(VERSION)-bacon-boot-debuggable.img
-BOOTIMG_URL  := http://builds.cyngn.com/cyanogen-os/bacon/$(SERIES)-$(VERSION)-bacon/$(HASH)/$(BOOTIMG_FILE)
+VERSION := YOG7DAS2K1
+HASH         := e313aacb24
+BOOTIMG_FILE := cm-$(SERIES)-$(VERSION)-bacon-boot-debuggable-$(HASH).img
+BOOTIMG_URL  := http://builds.cyngn.com/factory/bacon/$(BOOTIMG_FILE)
 
 UPDATE_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-superuser.zip
 SIGNED_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-signed-superuser.zip
