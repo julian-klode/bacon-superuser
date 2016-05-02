@@ -1,11 +1,12 @@
-SERIES := 12.1
-VERSION := YOG7DAS2K1
-HASH         := e313aacb24
+SERIES := 13.0
+VERSION := ZNH0EAS2JK
+HASH         := 52d8c0f6c7
+REVISION     := 1
 BOOTIMG_FILE := cm-$(SERIES)-$(VERSION)-bacon-boot-debuggable-$(HASH).img
 BOOTIMG_URL  := http://builds.cyngn.com/factory/bacon/$(BOOTIMG_FILE)
 
-UPDATE_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-superuser.zip
-SIGNED_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-signed-superuser.zip
+UPDATE_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-superuser-r$(REVISION).zip
+SIGNED_ZIP   := out/cm-unofficial-$(SERIES)-$(VERSION)-bacon-signed-superuser-r$(REVISION).zip
 
 # Light builds
 LIGHT_UPDATE_ZIP   := out/cm-unofficial-12.0-superuser-light.zip
