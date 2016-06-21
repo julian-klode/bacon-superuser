@@ -52,5 +52,11 @@ The files in signapk/ are part of the Android Open Source Project.
     Origin: CM11 M8
      Extracted from CyanogenMod 11 M8
 
+The boot image shipped in the full zip file is the debuggable boot image
+shipped by CyanogenMod. You can find the source for the kernel contained in it:
+
+http://github.com/CyanogenMod/android_device_oneplus_bacon
+
 All other files are Copyright (C) 2014, 2015 Julian Andres Klode <jak@jak-linux.org>
 and licensed under the terms of the Apache license, version 2.0.
+
