@@ -1,6 +1,6 @@
-SERIES := 13.1.1
-VERSION := ZNH2KAS2X1
-HASH         := 4ef536137e
+SERIES := 13.1.2
+VERSION := ZNH2KAS3P0
+HASH         := ff0428d091
 REVISION     := 1
 BOOTIMG_FILE := cm-$(SERIES)-$(VERSION)-bacon-boot-debuggable-$(HASH).img
 BOOTIMG_URL  := http://builds.cyngn.com/factory/bacon/$(BOOTIMG_FILE)
